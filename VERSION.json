@@ -1,0 +1,15 @@
+{
+  "product": "VALORANT management system",
+  "version": "v2.0.1",
+  "updated": "2026-09-08",
+  "versioning": {
+    "major": "大規模変更",
+    "minor": "機能追加",
+    "patch": "軽微な修正"
+  },
+  "changes": [
+    "管理者画面にバージョン管理表示を追加",
+    "バージョン情報の参照先をVERSION.jsonに統一",
+    "v2.0.0の管理画面表示不整合を修正"
+  ]
+}
