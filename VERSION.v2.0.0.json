@@ -1,0 +1,17 @@
+{
+  "product": "VALORANT management system",
+  "version": "v2.0.0",
+  "updated": "2026-09-08",
+  "versioning": {
+    "major": "大規模変更",
+    "minor": "機能追加",
+    "patch": "軽微な修正"
+  },
+  "changes": [
+    "大会運営画面の動線を全面的に整理",
+    "大会作成→チーム登録→選手管理→試合運営→トーナメント表の基本フローを明確化",
+    "サイドバーをSTART・TOURNAMENT・OPERATIONSに分類",
+    "現在位置を示すパンくずナビゲーションを追加",
+    "バージョン表示をv2.0.0へ統一"
+  ]
+}
