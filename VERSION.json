@@ -1,7 +1,7 @@
 {
   "product": "VALORANT management system",
-  "version": "v2.0.1",
-  "updated": "2026-09-08",
+  "version": "v2.1.0",
+  "updated": "2026-09-09",
   "versioning": {
     "major": "大規模変更",
     "minor": "機能追加",
@@ -10,6 +10,8 @@
   "changes": [
     "管理者画面にバージョン管理表示を追加",
     "バージョン情報の参照先をVERSION.jsonに統一",
-    "v2.0.0の管理画面表示不整合を修正"
+    "v2.0.0の管理画面表示不整合を修正",
+    "Vocalink-teamのロール権限をVALORANT management systemへ適用",
+    "Organizer・Developer・Admin・Super Admin等の大会権限をSupabase RLSと連携"
   ]
 }
