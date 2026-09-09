@@ -1,0 +1,51 @@
+name: Apply team permission access
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[role-sync]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update tournament access model
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re, json
+          p=Path('app.v11.0.0.js')
+          s=p.read_text(encoding='utf-8')
+          original=s
+          s=re.sub(
+              r"async function profile\(u\)\{.*?return data\}",
+              "async function profile(u){const{data:m,error:me}=await client.from('team_members').select('display_name,role_key,status').eq('user_id',u.id).maybeSingle();if(me)throw me;if(m?.status&&m.status!=='active')throw new Error('メンバーアカウントが有効ではありません');const{data:allowed,error:pe}=await client.rpc('has_team_permission',{p_permission:'tournaments',p_action:'view'});if(pe||!allowed)throw new Error('大会管理システムの利用権限がありません');return {display_name:m?.display_name||u.email,role:m?.role_key||u.app_metadata?.role||'member'}}",
+              s,count=1,flags=re.S)
+          s=re.sub(
+              r"async function getTournaments\(\)\{.*?return data\}",
+              "async function getTournaments(){const{data,error}=await client.from('tournaments').select('id,name,max_teams,status,starts_at,created_at').order('created_at',{ascending:false});if(error)throw error;return data||[]}",
+              s,count=1,flags=re.S)
+          if s!=original:p.write_text(s,encoding='utf-8')
+          v=Path('VERSION.json')
+          if v.exists():
+              d=json.loads(v.read_text(encoding='utf-8'))
+              d['version']='v2.1.0'; d['updated']='2026-09-09'
+              d.setdefault('changes',[]).append('Vocalink-teamのロール権限をVALORANT management systemへ適用')
+              d['changes'].append('Organizer・Developer・Admin・Super Admin等の大会権限をSupabase RLSと連携')
+              v.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('updated:',s!=original)
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'vocalink-team automation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.v11.0.0.js VERSION.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'feat: apply team permission access [role-sync]'
+          git push
