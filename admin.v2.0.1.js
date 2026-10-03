@@ -1,5 +1,5 @@
 (()=>{
-  const VERSION_URL='VERSION.json?v=2.2.2';
+  const VERSION_URL='VERSION.json?v=2.3.3';
   const SUPABASE_URL='https://qvxoxrzvxyyribqjnpkb.supabase.co';
   const SUPABASE_KEY='sb_publishable_1zOA0YpTtJkNYsmm4zXxsA_wSJpdHKe';
   const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
