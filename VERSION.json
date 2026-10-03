@@ -1,6 +1,6 @@
 {
   "product": "VALORANT management system",
-  "version": "v2.4.0",
+  "version": "v2.4.1",
   "updated": "2026-10-03",
   "versioning": {
     "major": "大規模変更",
@@ -8,6 +8,7 @@
     "patch": "軽微な修正"
   },
   "changes": [
+    "イベント計測導入後のJS/CSSキャッシュキーをVERSION.jsonと同期",
     "大会管理の匿名イベント計測を追加",
     "ページ表示・ログイン成功・画面遷移・大会選択を計測",
     "イベントにメールアドレス等の個人情報を保存しない",
