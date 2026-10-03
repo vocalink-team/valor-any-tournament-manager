@@ -1,6 +1,6 @@
 {
   "product": "VALORANT management system",
-  "version": "v2.2.3",
+  "version": "v2.3.0",
   "updated": "2026-10-03",
   "versioning": {
     "major": "大規模変更",
@@ -8,6 +8,7 @@
     "patch": "軽微な修正"
   },
   "changes": [
+    "大会管理から大会専用の参加者ページURLをTXTファイルでダウンロードできる機能を追加",
     "大会編集・チーム管理で使用するgetTournament関数の欠落を修正",
     "権限同期Workflowがアプリ本体を書き換えない検証専用方式へ変更",
     "ボタン操作が競合する旧runtime-fixの読み込みを停止",
