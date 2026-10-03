@@ -1,13 +1,15 @@
 {
   "product": "VALORANT management system",
-  "version": "v2.1.0",
-  "updated": "2026-09-09",
+  "version": "v2.2.1",
+  "updated": "2026-10-03",
   "versioning": {
     "major": "大規模変更",
     "minor": "機能追加",
     "patch": "軽微な修正"
   },
   "changes": [
+    "Tournament権限判定で存在しないpublic.is_vocalink_super_admin参照を修正",
+    "super_adminの大会ダッシュボード取得エラーを修正",
     "参加者向け大会ページを追加",
     "参加者ページで大会情報・承認済みチーム・選手表示名・試合予定/結果を表示",
     "公開データを専用Edge Functionで限定し管理用RLSを維持",
@@ -15,8 +17,6 @@
     "管理者画面にバージョン管理表示を追加",
     "バージョン情報の参照先をVERSION.jsonに統一",
     "v2.0.0の管理画面表示不整合を修正",
-    "Vocalink-teamのロール権限をVALORANT management systemへ適用",
-    "Organizer・Developer・Admin・Super Admin等の大会権限をSupabase RLSと連携",
     "Vocalink-teamのロール権限をVALORANT management systemへ適用",
     "Organizer・Developer・Admin・Super Admin等の大会権限をSupabase RLSと連携"
   ]
