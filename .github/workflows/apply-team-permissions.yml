@@ -32,13 +32,6 @@ jobs:
               "async function getTournaments(){const{data,error}=await client.from('tournaments').select('id,name,max_teams,status,starts_at,created_at').order('created_at',{ascending:false});if(error)throw error;return data||[]}",
               s,count=1,flags=re.S)
           if s!=original:p.write_text(s,encoding='utf-8')
-          v=Path('VERSION.json')
-          if v.exists():
-              d=json.loads(v.read_text(encoding='utf-8'))
-              d['version']='v2.1.0'; d['updated']='2026-09-09'
-              d.setdefault('changes',[]).append('Vocalink-teamのロール権限をVALORANT management systemへ適用')
-              d['changes'].append('Organizer・Developer・Admin・Super Admin等の大会権限をSupabase RLSと連携')
-              v.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           print('updated:',s!=original)
           PY
       - name: Commit
