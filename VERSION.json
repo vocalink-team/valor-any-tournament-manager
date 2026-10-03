@@ -1,6 +1,6 @@
 {
   "product": "VALORANT management system",
-  "version": "v2.2.1",
+  "version": "v2.2.2",
   "updated": "2026-10-03",
   "versioning": {
     "major": "大規模変更",
@@ -8,6 +8,9 @@
     "patch": "軽微な修正"
   },
   "changes": [
+    "ボタン操作が競合する旧runtime-fixの読み込みを停止",
+    "選手・試合・トーナメント表・管理者画面の権限参照をteam_membersへ統一",
+    "大会0件時の「大会を作成」ボタンが反応しない不具合を修正",
     "権限同期ワークフローによるバージョン巻き戻しを修正",
     "Tournament権限判定で存在しないpublic.is_vocalink_super_admin参照を修正",
     "super_adminの大会ダッシュボード取得エラーを修正",
