@@ -1,5 +1,5 @@
 (()=>{
-  const VERSION_URL='VERSION.json?v=2.0.1';
+  const VERSION_URL='VERSION.json?v=2.2.2';
   const SUPABASE_URL='https://qvxoxrzvxyyribqjnpkb.supabase.co';
   const SUPABASE_KEY='sb_publishable_1zOA0YpTtJkNYsmm4zXxsA_wSJpdHKe';
   const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
@@ -7,8 +7,8 @@
   async function isSuperAdmin(){
     const {data:{user}}=await sb.auth.getUser();
     if(!user)return false;
-    const {data,error}=await sb.from('profiles').select('role').eq('id',user.id).maybeSingle();
-    return !error&&data?.role==='super_admin';
+    const {data,error}=await sb.from('team_members').select('role_key,status').eq('user_id',user.id).maybeSingle();
+    return !error&&data?.status==='active'&&data?.role_key==='super_admin';
   }
   async function syncNav(){
     const nav=$('admin-nav');
