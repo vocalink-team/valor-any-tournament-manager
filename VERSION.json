@@ -1,6 +1,6 @@
 {
   "product": "VALORANT management system",
-  "version": "v2.5.0",
+  "version": "v2.5.1",
   "updated": "2026-10-04",
   "versioning": {
     "major": "大規模変更",
@@ -8,6 +8,7 @@
     "patch": "軽微な修正"
   },
   "changes": [
+    "VERSION参照・参加者ページのキャッシュキーをv2.5.1へ同期",
     "Vocalink共通UIデザイン言語へ統一",
     "イベント計測導入後のJS/CSSキャッシュキーをVERSION.jsonと同期",
     "大会管理の匿名イベント計測を追加",
